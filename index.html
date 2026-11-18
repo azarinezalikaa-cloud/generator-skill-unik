@@ -1,0 +1,71 @@
+<html>
+    <head\>
+        <title>Generator Skill</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+</html>
+
+<body>
+<div class="kotak-mesin">
+    <h1>Generator Skill Unik</h1>
+
+    <p>
+    Masukkan namamu untuk melihat skill tersembunyimu!
+    </p>
+
+    <input
+    type="text"
+    id="namaInput"
+    placeholder="Ketik namamu..."
+    >
+    <button onclick="cekSkill()">
+        Cek Sekarang!
+    </button>
+    <h2 id="hasilSkill">
+        Skill belum terdeteksi...
+    </h2>
+    <img
+    id="fotoSkill"
+    src="https://placehold.co/200x200?text=?"
+    width="400"
+    >
+</div>
+</body>
+<script>
+        function cekSkill() {
+            let nama = document.getElementById("namaInput").value;
+
+            let daftarSkill = [
+                "Tendangan Jumpa Fans",
+                "Pace Vario",
+                "Radar Wifi",
+                "Aroma Bensin",
+                "Rayap Besi"
+            ];
+
+            let daftarGambar = [
+                "https://i.pinimg.com/736x/cb/90/f6/cb90f64712fc5434aa705d39e9da811e.jpg",
+                "https://i.pinimg.com/736x/6c/11/d0/6c11d0d02d171354247ee4b2ca0e0994.jpg",
+                "https://i.pinimg.com/736x/61/1f/4d/611f4df85b99543b7ced64d93620136a.jpg",
+                "https://i.pinimg.com/736x/b7/26/2c/b7262c46c5e2ec1d062afdbc254018b8.jpg",
+                "https://i.pinimg.com/736x/d0/bf/a4/d0bfa422f3b509dfb1d92f629de44425.jpg",
+            ]
+
+            if (nama.trim() === "") {
+                document.getElementById("hasilSkill").innerText =
+                    "Masukkan namamu dulu!";
+                return;
+            }
+
+            let acak = Math.floor(Math.random() * daftarSkill.length);
+            let skillPilihan = daftarSkill[acak];
+
+            let gambarPilihan = daftarGambar[acak];
+
+            document.getElementById("hasilSkill").innerText =
+                nama + ", skill unikmu: " + skillPilihan;
+                document.getElementById("fotoSkill").src = gambarPilihan
+        }
+    </script>
+</body>
+</html>
